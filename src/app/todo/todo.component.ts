@@ -1,48 +1,47 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ListComponent } from '../list/list.component';
 
 @Component({
     selector: 'todo',
     templateUrl: 'todo.component.html',
     styleUrl: './todo.component.scss',
     standalone: true,
-    imports: [FormsModule]
+    imports: [FormsModule, ListComponent]
 })
 
 export class TodoComponent implements OnInit {
-    todoTitle = 'THis is the todo title';
+    //todoTitle = 'THis is the todo title';
     todoArr: string[] = [];
-    numbersArr = [1,2,3,4,5];
+    //numbersArr = [1,2,3,4,5];
     todoText: string = '';
     intervalId : any;
+    @ViewChild('mylist') listComponent?: ListComponent; 
+
 
     constructor() { }
     ngOnInit() { }
 
     add() {
         if (this.todoText.trim()) {
-            this.todoArr.push(this.todoText);
-            this.todoText = ''; // Clear the input after adding
+            if(this.listComponent){
+                this.listComponent.addItem(this.todoText)
+                 this.todoText = ''; 
+            }
+            
         }
     }
 
     start() {
         this.stop();
-        this.intervalId = setInterval(() => {
-            console.log(this.todoArr)
-                if(this.todoArr.length){
-                    this.todoArr.pop();
-                }
-                else{
-                    this.stop();
-                }
-            }, 3000);
-       }
+        if(this.listComponent){
+            this.listComponent.start();
+        }
+    }
     stop() {
-        if (this.intervalId) {
-            clearInterval(this.intervalId);
-            this.intervalId = null;
-          }
+        if(this.listComponent){
+            this.listComponent.stop();
+        }
     }  
 }
 
