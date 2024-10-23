@@ -1,0 +1,15 @@
+<div >
+    @for(todo of todoArr; track todo){
+        <div>{{todo}}</div>
+    }
+</div>
+
+<div>
+    <input type="text" [(ngModel)]="todoText" placeholder="Enter a new todo">
+</div>
+<button (click)="add()">Add</button>
+
+<button style="margin: 10px" (click)="start()">Start</button>
+<button style="margin: 10px" (click)="stop()">Stop</button>
+
+
