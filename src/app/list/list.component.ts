@@ -40,4 +40,10 @@ export class ListComponent implements OnInit {
         this.intervalId = null;
 
     }
+
+    close(index :number){
+        this.todoArr.splice(index, 1);
+    }
+
+
 }

@@ -1,5 +1,9 @@
-<div >
-    @for(todo of todoArr; track todo){
-        <div>{{todo}}</div>
+<div>
+    @for(todo of todoArr; track todo; let idx = $index){
+        <div class="list">
+            <div>{{todo}}</div>
+            <i (click)="close(idx)" class="fas fa-times close-icon"></i>
+        </div>
+        
     }
 </div>
