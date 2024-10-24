@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; // Pentru ngIf
+import { Task } from '../todo.component';
 
 @Component({
   selector: 'list',
@@ -9,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
 })
 export class ListComponent {
-  @Input() arr: string[] = [];
+  @Input() arr: Task[] = [];
   @Output() closeItem = new EventEmitter<number>();
 
   constructor() {}

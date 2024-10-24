@@ -1,0 +1,43 @@
+<div class="container-list">
+    @for(todo of arr; track todo; let idx = $index){
+        <div class="list">
+            <div class="task">{{todo.task}}</div>
+            @switch (todo.status) {
+            @case ("Succes") {
+                <!-- <div class="container-status"> -->
+                    <div class="succes-status">
+                        <i class="fas fa-check succes-icon"></i>
+                        Succes
+                        <i (click)="close(idx)" class="fas fa-times close-icon"></i>
+                    </div>
+                <!-- </div> -->
+                
+            }
+            @case ("Error") {
+                <!-- <div class="container-status"> -->
+                    <div class="error-status">
+                        <i class="fas fa-times error-icon"></i>
+                        Error
+                        <i (click)="close(idx)" class="fas fa-times close-icon"></i>
+                    </div>
+                <!-- </div> -->
+                
+            }
+            @case ("Warning") {
+                <!-- <div class="container-status"> -->
+                    <div class="warning-status">
+                        <i class="fas fa-exclamation-triangle warning-icon"></i>
+                        Warning
+                        <i (click)="close(idx)" class="fas fa-times close-icon"></i>
+                    </div>
+                <!-- </div> -->
+               
+            }
+            
+            }
+           
+            
+        </div>
+        
+    }
+</div>

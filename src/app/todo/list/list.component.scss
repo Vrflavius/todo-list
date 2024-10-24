@@ -1,0 +1,99 @@
+:host {
+    @import '~@fortawesome/fontawesome-free/css/all.css';
+    .list{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ededed;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 5px 0px;
+        
+    }
+
+    .close-icon{
+        position: absolute;
+        top: 4px;
+        right: 4px;
+    }
+    
+    .task{
+        width: 15rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .container-list{
+        position: absolute;
+        right: 0px;
+        margin: 10px;
+        width: 40%;
+    }
+
+    .succes-status{
+        background-color: #d4edda;
+        color: #155724;
+        border-color: #c3e6cb;
+        padding: 11px 55px;
+        border-radius: 6px;
+        position: relative;
+        width:10%;
+    }
+    .succes-icon{
+        position: absolute;
+        top: 9px;
+        left: 12px;
+        border: 1px solid #c3e6cb;
+        padding: 2px;
+        background: #b2cfb9;
+        border-radius: 17px;
+    }
+
+    .error-status{
+        
+        background-color: #f8d7da; /* Light red */
+        color: #721c24; /* Dark red text */
+        border-color: #f5c6cb;
+        padding: 11px 55px;
+        border-radius: 6px;
+        position: relative;
+        width:10%;
+        
+    }
+
+    .error-icon{
+        position: absolute;
+        top: 9px;
+        left: 12px;
+        background: #d18282;
+        padding: 2px 4px;
+        border-radius: 11px;
+    }
+
+    .warning-status{
+        
+        color: #9f7b0d;
+        border-color: #f5c6cb;
+        padding: 11px 55px;
+        border-radius: 6px;
+        position: relative;
+        background-color: #f5d880;
+        width:10%;
+        
+    }
+    .warning-icon{
+        position: absolute;
+        top: 8px;
+        left: 12px;
+        background: #daa919;
+        padding: 4px 4px;
+        border-radius: 13px;
+    }
+
+
+    .container-status{
+        display: flex;
+        // justify-content: flex-end;
+        align-items: center;
+    }
+}
