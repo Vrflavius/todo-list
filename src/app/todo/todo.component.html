@@ -9,4 +9,22 @@
 <button style="margin: 10px" (click)="start()">Start</button>
 <button style="margin: 10px" (click)="stop()">Stop</button>
 
+<div class="radio-container">
+    <label>
+        <input type="radio" name="status" [(ngModel)]="selectedStatus" [value]="TaskStatus.Succes">
+        Succes
+    </label>
+    
+    <label>
+        <input type="radio" name="status" [(ngModel)]="selectedStatus" [value]="TaskStatus.Error">
+        Error
+    </label>
+    
+    <label>
+        <input type="radio" name="status" [(ngModel)]="selectedStatus" [value]="TaskStatus.Warning">
+        Warning
+    </label>
+</div>
+
+
 

@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ListComponent } from '../list/list.component';
+import { ListComponent } from './list/list.component';
+
+enum TaskStatus {
+  Succes = 'Succes',
+  Error= 'Error',
+  Warning = 'Warning',
+  None = 'None'
+}
+export interface Task {
+  task: string;
+  status: TaskStatus;
+}
 
 @Component({
   selector: 'todo',
@@ -10,7 +21,11 @@ import { ListComponent } from '../list/list.component';
   imports: [FormsModule, ListComponent],
 })
 export class TodoComponent implements OnInit {
-  todoArr: string[] = [];
+  TaskStatus = TaskStatus;
+
+  selectedStatus : TaskStatus = TaskStatus.None;
+
+  todoArr: Task[] = [];
   todoText: string = '';
   intervalId: any;
 
@@ -18,8 +33,8 @@ export class TodoComponent implements OnInit {
   ngOnInit() {}
 
   add() {
-    if (this.todoText.trim()) {
-        this.todoArr.push(this.todoText);
+    if (this.todoText.trim() && this.selectedStatus !== TaskStatus.None) {
+        this.todoArr.push({task: this.todoText, status: this.selectedStatus} );
         this.todoText = '';
     }
   }
