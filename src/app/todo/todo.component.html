@@ -1,6 +1,7 @@
 
-<list #mylist></list>
+<list [arr]="todoArr" (closeItem)="removeItem($event)"></list>
 <div>
+    <!-- NG MODEL IS A DIRECTIVE -->
     <input type="text" [(ngModel)]="todoText" placeholder="Enter a new todo">
 </div>
 <button (click)="add()">Add</button>

@@ -1,49 +1,23 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'list',
-    templateUrl: 'list.component.html',
-    styleUrl: './list.component.scss',
-    standalone: true,
-    imports: [FormsModule]
+  selector: 'list',
+  templateUrl: 'list.component.html',
+  styleUrl: './list.component.scss',
+  standalone: true,
+  imports: [FormsModule],
 })
+export class ListComponent {
+  @Input() arr: string[] = [];
+  @Output() closeItem = new EventEmitter<number>();
 
-export class ListComponent implements OnInit {
-    todoArr: string[] = [];
-    todoText: string = '';
-    intervalId : any;
+  constructor() {}
 
-    constructor() { }
-    ngOnInit() { }
-
-    addItem (todoText: string) {
-        console.log(todoText);
-        this.todoArr.push(todoText);
-    }
-
-    start() {
-        this.intervalId = setInterval(() => {
-            console.log(this.todoArr)
-                if(this.todoArr.length){
-                    this.todoArr.pop();
-                }
-                else{
-                    this.stop();
-                }
-            }, 3000);
-    }
-
-    stop() { 
-
-        clearInterval(this.intervalId);
-        this.intervalId = null;
-
-    }
-
-    close(index :number){
-        this.todoArr.splice(index, 1);
-    }
-
-
+  close(index: number) {
+    // Remove the item from the array
+    this.closeItem.emit(index);
+  }
 }
+
+// Java/Nodejs
